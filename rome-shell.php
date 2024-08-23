@@ -12,9 +12,7 @@
 
 <?php
     // Password protection, useful for King of The Hill games
-    $pass='
-cf96271dffc8f195566014a1e725444dbc2c83df45ede809f8b8590dc38308ad14681aba8df06a77daf8cf25aff83af990c2f2589d59e17e7668bf891d066e4d
-'; // Set to null to disable; Set to string to enable, must be the sha512 hash of the password.
+    $pass=''; // Set to null to disable; Set to string to enable, must be the sha512 hash of the password.
 
 
     if($pass != null) {
