@@ -9,11 +9,13 @@
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      path: window.location.pathname,
-      browser: navigator.userAgent
+      path: window.location.pathname,           // Current page
+      browser: navigator.userAgent,            // Browser info
+      referrer: document.referrer || 'None'    // The page that led here
     })
   }).catch(err => console.log('Tracking error:', err));
 })();
+
 </script>
 
 </html>
