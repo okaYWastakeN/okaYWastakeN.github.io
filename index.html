@@ -3,20 +3,36 @@
   <head></head>
   <body> Yo helloo this site is running on github pages, its domain is 0x0ff.ru
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "713786c17560494b8949275f1dee193b"}'></script><!-- End Cloudflare Web Analytics --></body>
-  <script>
+ <script>
 (function() {
-  fetch('https://vds.0x0ff.ru/track.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      path: window.location.pathname,           // Current page
-      browser: navigator.userAgent,            // Browser info
-      referrer: document.referrer || 'None'    // The page that led here
-    })
-  }).catch(err => console.log('Tracking error:', err));
-})();
+  // --- JS tracking via fetch (modern browsers / bots with JS) ---
+  try {
+    fetch('https://vds.0x0ff.ru/track.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        path: window.location.pathname,
+        browser: navigator.userAgent,
+        referrer: document.referrer || 'None'
+      })
+    }).catch(err => console.log('Tracking error:', err));
+  } catch(e) {
+    console.log('Tracking fetch failed:', e);
+  }
 
+  // --- Fallback for no-JS bots (invisible image beacon) ---
+  var img = document.createElement('img');
+  img.src = 'https://vds.0x0ff.ru/track.php'
+          + '?path=' + encodeURIComponent(window.location.pathname)
+          + '&ref1=' + encodeURIComponent(document.referrer || 'None');
+  img.style.display = 'none';
+  document.body.appendChild(img);
+})();
 </script>
+<noscript>
+  <!-- For *completely* no-JS clients -->
+  <img src="https://vds.0x0ff.ru/track.php?path=/noscript&ref1=noscript" style="display:none;" alt="." />
+</noscript>
 
 </html>
  
