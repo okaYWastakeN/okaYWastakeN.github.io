@@ -1,38 +1,104 @@
 <!DOCTYPE html>
-<html>
-  <head></head>
-  <body> Yo helloo this site is running on github pages, its domain is 0x0ff.ru
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "713786c17560494b8949275f1dee193b"}'></script><!-- End Cloudflare Web Analytics --></body>
- <script>
-(function() {
-  // --- JS tracking via fetch (modern browsers / bots with JS) ---
-  try {
-    fetch('https://vds.0x0ff.ru/track.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        path: window.location.pathname,
-        browser: navigator.userAgent,
-        referrer: document.referrer || 'None'
-      })
-    }).catch(err => console.log('Tracking error:', err));
-  } catch(e) {
-    console.log('Tracking fetch failed:', e);
-  }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silicon Exposed</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f0f0f0;
+      --dim: #7a7a7a;
+      --border: #252525;
+      --chip-bg: #000;
+    }
 
-  // --- Fallback for no-JS bots (invisible image beacon) ---
-  var img = document.createElement('img');
-  img.src = 'https://vds.0x0ff.ru/track.php'
-          + '?path=' + encodeURIComponent(window.location.pathname)
-          + '&ref1=' + encodeURIComponent(document.referrer || 'None');
-  img.style.display = 'none';
-  document.body.appendChild(img);
-})();
-</script>
-<noscript>
-  <!-- For *completely* no-JS clients -->
-  <img src="https://vds.0x0ff.ru/track.php?path=/noscript&ref1=noscript" style="display:none;" alt="." />
-</noscript>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 2.1rem;
+      letter-spacing: -0.8px;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .tagline {
+      text-align: center;
+      color: var(--dim);
+      font-size: 0.95rem;
+      margin-bottom: 2.6rem;
+      font-weight: 400;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 2.2rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .die-shot {
+      transition: transform 0.2s ease;
+    }
+
+    .die-shot:hover {
+      transform: translateY(-3px);
+    }
+
+    .die-shot img {
+      width: 100%;
+      display: block;
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .die-shot figcaption {
+      margin-top: 0.6rem;
+      font-size: 0.87em;
+      color: var(--dim);
+      text-align: center;
+      word-break: break-word;
+    }
+
+    @media (max-width: 580px) {
+      body {
+        padding: 1.5rem 1rem;
+        font-size: 13px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .gallery {
+        gap: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Silicon Exposed</h1>
+  <div class="tagline">Decapped. Documented. No acid needed.</div>
+  <div class="gallery">
+    <!-- Add your chips here -->
+    <figure class="die-shot">
+      <img src="shots/esp8266.jpg" alt="Sample">
+      <figcaption>ESP8266 – 5 sec with pliers</figcaption>
+    </figure>
+  </div>
+</body>
 </html>
- 
