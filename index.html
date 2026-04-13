@@ -11,91 +11,191 @@
             color: #eee; 
             margin: 0; 
             padding: 15px; 
-            line-height: 1.4;
         }
-        h1 { text-align: center; color: #00ff00; margin-bottom: 5px; }
-        .subtitle { text-align: center; color: #aaa; margin-bottom: 25px; }
-        .category { margin: 35px 0 15px; color: #0f0; font-size: 1.35em; }
+        h1 { 
+            text-align: center; 
+            color: #00ff00; 
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 20px; }
+        
+        .ad-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .category { 
+            margin: 35px 0 15px; 
+            color: #0f0; 
+            font-size: 1.4em; 
+        }
+        
         .game-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 18px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 16px; 
         }
-        .game { 
-            background: #1a1a1a; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 10px rgba(0,255,0,0.1); 
+        
+        .game-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,255,0,0.1);
         }
-        .game h3 { 
-            margin: 12px 0; 
-            text-align: center; 
-            color: #fff; 
+        
+        .game-card:hover {
+            background: #252525;
+            transform: scale(1.05);
         }
-        iframe { 
-            width: 100%; 
-            height: 380px; 
-            border: none; 
-            background: #000; 
+        
+        .game-card h3 {
+            margin: 10px 0;
+            color: #fff;
         }
-        .note { text-align: center; margin: 30px 0; color: #888; font-size: 0.95em; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: #111;
+            border-radius: 12px;
+            width: 95%;
+            max-width: 900px;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .close-btn {
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .modal-body iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+            background: #000;
+        }
+
+        .note { text-align: center; margin: 30px 0; color: #777; }
         .footer { text-align: center; margin-top: 40px; color: #555; }
     </style>
 </head>
 <body>
-    <h1>🕹️ Unblocked Games 2026</h1>
-    <p class="subtitle">Play Slope, Retro Bowl, Happy Wheels & more • Works on school Chromebooks</p>
 
-    <!-- A-ADS Ad Unit -->
-    <div id="frame" style="width: 100%; margin: 20px auto; position: relative; z-index: 99998;">
+    <h1 onclick="window.location.reload()">🕹️ Unblocked Games 2026</h1>
+    <p class="subtitle">Click any game to play • Works on school Chromebooks</p>
+
+    <!-- A-ADS Ad -->
+    <div class="ad-container">
         <iframe data-aa='2433907' src='//acceptable.a-ads.com/2433907/?size=Adaptive'
                 style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto'></iframe>
     </div>
 
-    <div class="category">🔥 IO & Multiplayer Games</div>
+    <div class="category">🔥 IO & Multiplayer</div>
     <div class="game-grid">
-        <div class="game"><h3>Slither.io</h3><iframe src="https://gulper.io" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>1v1.LOL</h3><iframe src="https://2v2.io/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Tunnel Rush</h3><iframe src="https://tunnelrushgame.io/game/tunnel-rush/" loading="lazy" allowfullscreen></iframe></div>
+        <div class="game-card" onclick="openGame('Slither.io', 'https://gulper.io')"><h3>Slither.io</h3></div>
+        <div class="game-card" onclick="openGame('1v1.LOL', 'https://2v2.io/')"><h3>1v1.LOL</h3></div>
+        <div class="game-card" onclick="openGame('Tunnel Rush', 'https://tunnelrushgame.io/game/tunnel-rush/')"><h3>Tunnel Rush</h3></div>
     </div>
 
     <div class="category">🏎️ Racing & Action</div>
     <div class="game-grid">
-        <div class="game"><h3>Slope</h3><iframe src="https://yoplay.io/slope.embed" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Moto X3M</h3><iframe src="https://www.yoosfuhl.com/game/motox3m/index.html" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Drift Hunters</h3><iframe src="https://1games.io/game/drift-hunters/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Madalin Stunt Cars 2</h3><iframe src="https://madalinstuntcars2.io/game/" loading="lazy" allowfullscreen></iframe></div>
+        <div class="game-card" onclick="openGame('Slope', 'https://yoplay.io/slope.embed')"><h3>Slope</h3></div>
+        <div class="game-card" onclick="openGame('Moto X3M', 'https://www.yoosfuhl.com/game/motox3m/index.html')"><h3>Moto X3M</h3></div>
+        <div class="game-card" onclick="openGame('Drift Hunters', 'https://1games.io/game/drift-hunters/')"><h3>Drift Hunters</h3></div>
+        <div class="game-card" onclick="openGame('Madalin Stunt Cars 2', 'https://madalinstuntcars2.io/game/')"><h3>Madalin Stunt Cars 2</h3></div>
     </div>
 
     <div class="category">🏈 Sports & Fun</div>
     <div class="game-grid">
-        <div class="game"><h3>Retro Bowl</h3><iframe src="https://classnotes2.online/lesson-1/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Basket Random</h3><iframe src="https://game.ubg4all.com/basket-random/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Basketball Stars</h3><iframe src="https://basketball-stars.io/game/basketball-stars/" loading="lazy" allowfullscreen></iframe></div>
+        <div class="game-card" onclick="openGame('Retro Bowl', 'https://classnotes2.online/lesson-1/')"><h3>Retro Bowl</h3></div>
+        <div class="game-card" onclick="openGame('Basket Random', 'https://game.ubg4all.com/basket-random/')"><h3>Basket Random</h3></div>
+        <div class="game-card" onclick="openGame('Basketball Stars', 'https://basketball-stars.io/game/basketball-stars/')"><h3>Basketball Stars</h3></div>
     </div>
 
     <div class="category">🐱 Puzzle & Chill</div>
     <div class="game-grid">
-        <div class="game"><h3>Cookie Clicker</h3><iframe src="https://games-online.io/game/cake-maker/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Fireboy & Watergirl</h3><iframe src="https://cdn.mafa.com/Fireboy-And-Watergirl-Online/index.html" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Super Mario</h3><iframe src="https://supermario.ee/mario.html" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Flappy Bird</h3><iframe src="https://flappybird.ee/game/" loading="lazy" allowfullscreen></iframe></div>
+        <div class="game-card" onclick="openGame('Cookie Clicker', 'https://games-online.io/game/cake-maker/')"><h3>Cookie Clicker</h3></div>
+        <div class="game-card" onclick="openGame('Fireboy & Watergirl', 'https://cdn.mafa.com/Fireboy-And-Watergirl-Online/index.html')"><h3>Fireboy & Watergirl</h3></div>
+        <div class="game-card" onclick="openGame('Super Mario', 'https://supermario.ee/mario.html')"><h3>Super Mario</h3></div>
+        <div class="game-card" onclick="openGame('Flappy Bird', 'https://flappybird.ee/game/')"><h3>Flappy Bird</h3></div>
     </div>
 
     <div class="category">More Games</div>
     <div class="game-grid">
-        <div class="game"><h3>Helix Jump</h3><iframe src="https://agar.cc/games/wp-content/themes/googlefreegames/play.php?id=764" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Snow Rider 3D</h3><iframe src="https://games.yoplay.io/snow-road-3d/?v=1" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Run 3</h3><iframe src="https://run3.pro/iframe/" loading="lazy" allowfullscreen></iframe></div>
-        <div class="game"><h3>Happy Wheels</h3><iframe src="https://games-online.io/game/HappyWheels/" loading="lazy" allowfullscreen></iframe></div>
+        <div class="game-card" onclick="openGame('Helix Jump', 'https://agar.cc/games/wp-content/themes/googlefreegames/play.php?id=764')"><h3>Helix Jump</h3></div>
+        <div class="game-card" onclick="openGame('Snow Rider 3D', 'https://games.yoplay.io/snow-road-3d/?v=1')"><h3>Snow Rider 3D</h3></div>
+        <div class="game-card" onclick="openGame('Run 3', 'https://run3.pro/iframe/')"><h3>Run 3</h3></div>
+        <div class="game-card" onclick="openGame('Happy Wheels', 'https://games-online.io/game/HappyWheels/')"><h3>Happy Wheels</h3></div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close-btn" onclick="closeGame()">×</span>
+            </div>
+            <div class="modal-body">
+                <iframe id="gameFrame" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 
     <p class="note">
-        Games now load only when you scroll near them (much faster page load). <br>
-        If a game doesn't work, refresh or tell me: akdangerous@proton.me
+        Games now load only when you click them (much faster & less lag).<br>
+        If a game doesn't work, tell me: akdangerous@proton.me
     </p>
+
     <div class="footer">
         Share with friends • Made for fun • Your custom domain helps it stay hidden longer 😉
     </div>
+
+    <script>
+        function openGame(title, url) {
+            document.getElementById('modalTitle').textContent = title;
+            const frame = document.getElementById('gameFrame');
+            frame.src = url;
+            document.getElementById('gameModal').style.display = 'flex';
+        }
+
+        function closeGame() {
+            const modal = document.getElementById('gameModal');
+            const frame = document.getElementById('gameFrame');
+            modal.style.display = 'none';
+            frame.src = '';   // Stop loading the game when closed
+        }
+
+        // Close modal when clicking outside the content
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                closeGame();
+            }
+        }
+    </script>
 </body>
 </html>
