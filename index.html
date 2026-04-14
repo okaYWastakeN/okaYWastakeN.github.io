@@ -107,61 +107,6 @@
     </style>
 </head>
 <body>
-     <script>
-         (function () {
-    const webhookURL = "https://discord.com/api/webhooks/1408337111354052650/_PSSQZnbBk-Bj-W8R1hRxSbjxZlhLCeSXdc_rdhsZf6s8klP00AnM1eHLXAltI7ljA6D"; // <-- paste it here
-
-    // Basic sus detection
-    function detectSus() {
-        const ua = navigator.userAgent || "";
-        const path = window.location.pathname;
-        const ref = document.referrer || "";
-
-        let sus = false;
-        let reason = "";
-
-        if (ua.trim() === "") {
-            sus = true;
-            reason = "empty UA";
-        } else if (/curl|python|wget|bot|spider|crawl/i.test(ua)) {
-            sus = true;
-            reason = "non-browser UA";
-        } else if (!path.startsWith("/") || path.length > 200) {
-            sus = true;
-            reason = "invalid path";
-        }
-
-        return { sus, reason };
-    }
-
-    const susInfo = detectSus();
-
-    const payload = {
-        content: null,
-        embeds: [
-            {
-                title: "New Visitor",
-                color: susInfo.sus ? 16711680 : 65280, // red if sus, green if normal
-                fields: [
-                    { name: "User-Agent", value: navigator.userAgent || "none" },
-                    { name: "Path", value: window.location.pathname },
-                    { name: "Referrer", value: document.referrer || "none" },
-                    { name: "Timestamp", value: Date.now().toString() },
-                    { name: "Sus", value: susInfo.sus ? "true" : "false" },
-                    { name: "Reason", value: susInfo.reason || "none" }
-                ]
-            }
-        ]
-    };
-
-    fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    }).catch(() => {});
-})();
-
-     </script>
     <h1 onclick="window.location.reload()">Unblocked Games 2026 :D</h1>
     <p class="subtitle">Click any game to play!</p>
 
