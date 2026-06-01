@@ -1,204 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unblocked Games 2026 - Play Slope, Retro Bowl, 1v1.LOL at School</title>
-<meta name="description" content="Free unblocked games that work on school Chromebooks. Slope, Retro Bowl, Slither.io, Super Mario, Happy Wheels, Run 3 and more. No downloads, no login."></title>
-    <meta name="robots" content="index, follow">
-    <meta name='admaven-placement' content=Bqjs8qHn9>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: #0f0f0f; 
-            color: #eee; 
-            margin: 0; 
-            padding: 15px; 
-        }
-        h1 { 
-            text-align: center; 
-            color: #00ff00; 
-            cursor: pointer;
-            margin-bottom: 5px;
-        }
-        .subtitle { text-align: center; color: #aaa; margin-bottom: 20px; }
-        
-        .ad-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0x0ff</title>
+  <style>
+   
+    body {
+      background-color: #c0c0c0; /* early web gray */
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      font-family: "MS Sans Serif", "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
 
-        .category { 
-            margin: 35px 0 15px; 
-            color: #0f0; 
-            font-size: 1.4em; 
-        }
-        
-        .game-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 16px; 
-        }
-        
-        .game-card {
-            background: #1a1a1a;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 10px rgba(0,255,0,0.1);
-        }
-        
-        .game-card:hover {
-            background: #252525;
-            transform: scale(1.05);
-        }
-        
-        .game-card h3 {
-            margin: 10px 0;
-            color: #fff;
-        }
+    
+    .tabs-container {
+      width: 100%;
+      max-width: 500px;
+    }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: #111;
-            border-radius: 12px;
-            width: 95%;
-            max-width: 900px;
-            max-height: 90vh;
-            position: relative;
-        }
-        
-        .modal-header {
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-        }
-        
-        .close-btn {
-            font-size: 28px;
-            cursor: pointer;
-            color: #aaa;
-        }
-        
-        .modal-body iframe {
-            width: 100%;
-            height: 520px;
-            border: none;
-            background: #000;
-        }
+    
+    .retro-tab-header {
+      display: flex;
+      gap: 2px;
+      position: relative;
+      z-index: 2;
+      top: 1px; 
+    }
 
-        .note { text-align: center; margin: 30px 0; color: #777; }
-        .footer { text-align: center; margin-top: 40px; color: #555; }
-    </style>
+    
+    .retro-tab-link {
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: transparent;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: normal;
+      outline: none;
+      color: #000;
+    }
+
+   
+    .retro-tab-link.active {
+      background: #c0c0c0;
+      font-weight: bold;
+      border-bottom: 2px solid #c0c0c0; 
+      padding-bottom: 10px; 
+      margin-top: -2px;
+      z-index: 3;
+    }
+
+    
+    .retro-tab-content {
+      display: none;
+      background: #ffffff;
+      padding: 25px;
+      border: 2px solid #fff;
+      border-left-color: #fff;
+      border-top-color: #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      box-shadow: 1px 1px #0a0a0a;
+      min-height: 140px;
+      color: #000;
+      line-height: 1.5;
+    }
+
+    .retro-tab-content.active {
+      display: block;
+    }
+    
+    
+    .retro-link {
+      color: #0000ee;
+      text-decoration: underline;
+    }
+    .retro-link:visited {
+      color: #551a8b;
+    }
+
+    
+    .metric-group {
+      margin-top: 15px;
+      border-top: 1px dashed #808080;
+      padding-top: 15px;
+    }
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      color: #555;
+    }
+    .metric-value {
+      font-family: monospace;
+      font-weight: bold;
+    }
+    .address-box {
+      font-family: monospace;
+      font-size: 11px;
+      background: #eeeeee;
+      padding: 4px;
+      border: 1px inset #808080;
+      word-break: break-all;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
-    <h1 onclick="window.location.reload()">Unblocked Games 2026 :D</h1>
-    <p class="subtitle">Click any game to play!</p>
 
-    <!-- A-ADS Ad -->
-    <div class="ad-container">
-        <iframe data-aa='2433907' src='//acceptable.a-ads.com/2433907/?size=Adaptive'
-                style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto'></iframe>
-    </div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "713786c17560494b8949275f1dee193b"}'></script><!-- End Cloudflare Web Analytics -->
-    <p>(sorry for the ad)</p>
-    <div class="category"> IO & Multiplayer </div>
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('Slither.io', 'https://gulper.io')"><h3>Slither.io</h3></div>
-        <div class="game-card" onclick="openGame('1v1.LOL', 'https://2v2.io/')"><h3>1v1.LOL</h3></div>
-        <div class="game-card" onclick="openGame('Tunnel Rush', 'https://tunnelrushgame.io/game/tunnel-rush/')"><h3>Tunnel Rush</h3></div>
+  <div class="tabs-container">
+    <div class="retro-tab-header">
+      <button class="retro-tab-link active" onclick="openRetroTab(event, 'tab-one')">CTFs</button>
+      <button class="retro-tab-link" onclick="openRetroTab(event, 'tab-two')">Stock</button>
+      <button class="retro-tab-link" onclick="openRetroTab(event, 'tab-three')">Sponsoring and support!</button>
     </div>
 
-    <div class="category"> Racing & Action </div>
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('Slope', 'https://yoplay.io/slope.embed')"><h3>Slope</h3></div>
-        <div class="game-card" onclick="openGame('Moto X3M', 'https://www.yoosfuhl.com/game/motox3m/index.html')"><h3>Moto X3M</h3></div>
-        <div class="game-card" onclick="openGame('Drift Hunters', 'https://1games.io/game/drift-hunters/')"><h3>Drift Hunters</h3></div>
-        <div class="game-card" onclick="openGame('Madalin Stunt Cars 2', 'https://madalinstuntcars2.io/game/')"><h3>Madalin Stunt Cars 2</h3></div>
+    
+    <div id="tab-one" class="retro-tab-content active">
+      <p><strong>CTFs</strong></p>
+      <p>WIP</p>
     </div>
 
-    <div class="category"> Sports & Fun </div>
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('Retro Bowl', 'https://classnotes2.online/lesson-1/')"><h3>Retro Bowl</h3></div>
-        <div class="game-card" onclick="openGame('Basket Random', 'https://game.ubg4all.com/basket-random/')"><h3>Basket Random</h3></div>
-        <div class="game-card" onclick="openGame('Basketball Stars', 'https://basketball-stars.io/game/basketball-stars/')"><h3>Basketball Stars</h3></div>
-    </div>
-
-    <div class="category"> Puzzle & Chill </div>
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('Cookie Clicker', 'https://games-online.io/game/cake-maker/')"><h3>Cookie Clicker</h3></div>
-        <div class="game-card" onclick="openGame('Fireboy & Watergirl', 'https://cdn.mafa.com/Fireboy-And-Watergirl-Online/index.html')"><h3>Fireboy & Watergirl</h3></div>
-        <div class="game-card" onclick="openGame('Super Mario', 'https://supermario.ee/mario.html')"><h3>Super Mario</h3></div>
-        <div class="game-card" onclick="openGame('Flappy Bird', 'https://flappybird.ee/game/')"><h3>Flappy Bird</h3></div>
-    </div>
-
-    <div class="category"> More Games </div>
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('Helix Jump', 'https://agar.cc/games/wp-content/themes/googlefreegames/play.php?id=764')"><h3>Helix Jump</h3></div>
-        <div class="game-card" onclick="openGame('Snow Rider 3D', 'https://games.yoplay.io/snow-road-3d/?v=1')"><h3>Snow Rider 3D</h3></div>
-        <div class="game-card" onclick="openGame('Run 3', 'https://run3.pro/iframe/')"><h3>Run 3</h3></div>
-        <div class="game-card" onclick="openGame('Happy Wheels', 'https://games-online.io/game/HappyWheels/')"><h3>Happy Wheels</h3></div>
-    </div>
-
-    <!-- Modal Popup -->
-    <div id="gameModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle"></h2>
-                <span class="close-btn" onclick="closeGame()">×</span>
-            </div>
-            <div class="modal-body">
-                <iframe id="gameFrame" allowfullscreen></iframe>
-            </div>
+    <div id="tab-two" class="retro-tab-content">
+      <p><strong>LTC stock</strong></p>
+      <p>Stock is updated when you refresh the page =)</p>
+      
+      <div class="metric-group">
+        <div class="metric-row">
+          <span class="metric-label">Current Fund:</span>
+          <span id="ltc-balance" class="metric-value">Loading...</span>
         </div>
+        <div class="metric-row">
+          <span class="metric-label">Est. Rem. Solves:</span>
+          <span id="est-solves" class="metric-value">--</span>
+        </div>
+        <div>
+          <span class="metric-label">Public Audit Address:</span>
+          <div id="platform-address" class="address-box">Loading...</div>
+        </div>
+      </div>
     </div>
 
-    <p class="note">
-        Games now load only when you click them (much faster & less lag).<br>
-        If a game doesn't work, tell me: akdangerous@proton.me
-    </p>
-
-    <div class="footer">
-        Share with friends ( I need traffic :( ) • Made for fun :D
+    <div id="tab-three" class="retro-tab-content">
+      <p><strong>Sponsoring and support!</strong></p>
+      <p>Want to advertise yourself? Send us an email for sponsoring our site! Min sponsor: 3 USD (LTC).</p>
+      <p>Your name or text will appear as a beautiful banner or when a user completes a CTF! Email: akdangerous@proton.me</p>
     </div>
+  </div>
 
-    <script>
-        function openGame(title, url) {
-            document.getElementById('modalTitle').textContent = title;
-            const frame = document.getElementById('gameFrame');
-            frame.src = url;
-            document.getElementById('gameModal').style.display = 'flex';
+  <script>
+    
+    const LTC_ADDRESS = "LWCsBtrK6beC69t13Lk1tbTZ1pZhoFfWVE";
+
+    function openRetroTab(evt, tabName) {
+      var i, tabContent, tabLinks;
+
+      tabContent = document.getElementsByClassName("retro-tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].classList.remove("active");
+      }
+
+      tabLinks = document.getElementsByClassName("retro-tab-link");
+      for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+
+     
+      if (tabName === 'tab-two') {
+        fetchLtcBalance();
+      }
+    }
+
+    async function fetchLtcBalance() {
+      const balanceEl = document.getElementById('ltc-balance');
+      const solvesEl = document.getElementById('est-solves');
+      const addressEl = document.getElementById('platform-address');
+      
+      addressEl.textContent = LTC_ADDRESS;
+
+      if (LTC_ADDRESS === "YOUR_LITECOIN_ADDRESS_HERE" || LTC_ADDRESS.trim() === "") {
+        balanceEl.textContent = "Address unconfigured";
+        return;
+      }
+
+      try {
+     
+        const response = await fetch(`https://litecoinspace.org/api/address/${LTC_ADDRESS}`);
+        if (!response.ok) throw new Error('Blockchain API error');
+        const data = await response.json();
+        
+     
+        const funded = data.chain_stats.funded_txo_sum + data.mempool_stats.funded_txo_sum;
+        const spent = data.chain_stats.spent_txo_sum + data.mempool_stats.spent_txo_sum;
+        const balanceInSatoshis = funded - spent;
+        const ltcBalance = balanceInSatoshis / 100000000;
+
+      
+        let ltcPriceUsd = 51.00; // fallback
+        try {
+          const priceResponse = await fetch('https://api.coinbase.com/v2/prices/LTC-USD/spot');
+          if (priceResponse.ok) {
+            const priceData = await priceResponse.json();
+            ltcPriceUsd = parseFloat(priceData.data.amount);
+          }
+        } catch (e) {
+          console.warn("Could not fetch live price, using fallback.", e);
         }
 
-        function closeGame() {
-            const modal = document.getElementById('gameModal');
-            const frame = document.getElementById('gameFrame');
-            modal.style.display = 'none';
-            frame.src = '';   // Stop loading the game when closed
-        }
+       
+        const totalCents = Math.floor((ltcBalance * ltcPriceUsd) * 100);
 
-        // Close modal when clicking outside the content
-        window.onclick = function(event) {
-            const modal = document.getElementById('gameModal');
-            if (event.target === modal) {
-                closeGame();
-            }
-        }
-    </script>
+       
+        balanceEl.textContent = `${ltcBalance.toFixed(4)} LTC / ${totalCents}¢`;
+        solvesEl.textContent = `${totalCents.toLocaleString()} solves remaining`;
+
+      } catch (error) {
+        console.error(error);
+        balanceEl.textContent = "Error loading metric";
+        solvesEl.textContent = "Error";
+      }
+    }
+
+    
+    document.getElementById('platform-address').textContent = LTC_ADDRESS;
+  </script>
+
 </body>
 </html>
