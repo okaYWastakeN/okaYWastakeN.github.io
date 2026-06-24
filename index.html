@@ -5,9 +5,9 @@
     <title>Welcome</title>
     <style>
         body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: "Courier New", Courier, monospace;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Arial", sans-serif;
             margin: 0;
             padding: 20px;
             height: 100vh;
@@ -20,7 +20,7 @@
             position: relative;
         }
 
-   
+        /* --- GATEKEEPER START --- */
         #gatekeeper {
             text-align: center;
             max-width: 600px;
@@ -28,65 +28,50 @@
         }
 
         .fun-btn {
-            background-color: #00ff00;
+            background-color: #ffffff;
             color: #000000;
-            border: none;
+            border: 4px solid #000000;
             padding: 20px 40px;
             font-size: 2.5rem;
-            font-family: 'Impact', sans-serif;
+            font-family: "Arial Black", sans-serif;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 0 15px #00ff00;
-            border-radius: 5px;
-            transition: transform 0.1s;
         }
 
         .fun-btn:hover {
-            transform: scale(1.05);
-            background-color: #33ff33;
+            background-color: #000000;
+            color: #ffffff;
         }
 
         .disclaimer-text {
             margin-top: 25px;
             font-size: 0.85rem;
-            color: #666666;
+            color: #555555;
             line-height: 1.4;
         }
 
-        
+        /* --- THE ORIGINAL FLASHING STYLE --- */
         .chaos-mode {
             animation: flash 0.15s infinite;
         }
 
         @keyframes flash {
-            0% { background-color: #111; }
-            50% { background-color: #fff; }
-            100% { background-color: #000; }
+            0% { background-color: #ffffff; color: #000000; }
+            50% { background-color: #000000; color: #ffffff; }
+            100% { background-color: #ffffff; color: #000000; }
         }
 
         .virus-text {
-            font-size: 8vw;
-            font-family: "Impact", sans-serif;
+            font-size: 7vw;
+            font-family: "Arial Black", sans-serif;
+            font-weight: 900;
             text-align: center;
-            line-height: 1;
-            letter-spacing: 2px;
-            transform: rotate(-5deg);
-            display: none;
-            text-shadow: 0 0 20px currentColor; /* Pulls from the dynamic JS color */
-            transition: color 0.2s ease;
-        }
-
-        .sub-text {
-            font-size: 3vw;
-            margin-top: 20px;
-            font-family: monospace;
-            background: #000;
-            color: #fff;
-            padding: 10px;
+            line-height: 1.1;
+            letter-spacing: -1px;
             display: none;
         }
 
-     
+        /* --- CORNER EXIT TRAP --- */
         #exit-trap {
             position: absolute;
             bottom: 20px;
@@ -97,23 +82,16 @@
         }
 
         .exit-btn {
-            background: #ff0000;
-            color: #fff;
-            border: 2px solid #fff;
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
             padding: 10px 20px;
             font-weight: bold;
-            font-family: Arial, sans-serif;
             cursor: pointer;
-            box-shadow: 0 0 10px #ff0000;
-        }
-
-        .exit-btn:hover {
-            background: #cc0000;
         }
 
         .fake-text {
             font-size: 0.6rem;
-            color: #888;
             margin-top: 4px;
             font-family: monospace;
         }
@@ -127,7 +105,6 @@
     </div>
 
     <div class="virus-text" id="target">...</div>
-    <div class="sub-text" id="sub-target">YOU ARE AN IDIOT! :-) :-) :-)</div>
 
     <div id="exit-trap">
         <button class="exit-btn" onclick="triggerLevel2()">EXIT</button>
@@ -135,73 +112,38 @@
     </div>
 
     <script>
-      
         let hostname = window.location.hostname.replace('www.', '').toUpperCase();
         
-      
-        document.getElementById('target').innerText = `${hostname} IS INFECTED!`;
-        document.getElementById('disclaimer-target').innerText = `DISCLAIMER: By clicking the button above, you agree to enter a joke website for ${hostname}. This will trigger browser artifacts, flashing lights, and interactive layout changes. Proceed at your own risk!`;
+        document.getElementById('disclaimer-target').innerText = `DISCLAIMER: By clicking the button above, you agree to enter a joke website for ${hostname}. This will trigger browser artifacts, flashing loops, and interactive elements. Proceed at your own risk!`;
         document.title = `Welcome to ${hostname}`;
 
-       
-        function generateDomainColor(str) {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                hash = str.charCodeAt(i) + ((hash << 5) - hash);
-            }
-            let h = Math.abs(hash % 360);
-            return `hsl(${h}, 100%, 50%)`; 
-        }
-
-       
-        const virusColor = generateDomainColor(hostname);
-        document.getElementById('target').style.color = virusColor;
-
-
-    
+        // Handles the level 1 flashing state layout swap
         function startChaos() {
-          
             document.getElementById('gatekeeper').style.display = 'none';
-
-            // Paint the virus graphics and fake layout exit
+            document.getElementById('target').innerText = `YOU ARE AN IDIOT!\n:-) :-) :-)`;
             document.getElementById('target').style.display = 'block';
-            document.getElementById('sub-target').style.display = 'block';
             document.getElementById('exit-trap').style.display = 'block';
 
-           
             document.title = `YOU ARE AN IDIOT - ${hostname}`;
             document.body.classList.add('chaos-mode');
 
-          
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
             }
         }
 
-
-
+        // Handles the asynchronous execution block to allow rendering before the popup trap
         function triggerLevel2() {
-        
             document.title = `YOU ARE AN IDIOT #2 - ${hostname} B-)`;
-            document.getElementById('target').innerText = `WELCOME TO LEVEL 2!`;
-            document.getElementById('target').style.color = '#ff00ff'; // 
-            document.getElementById('sub-target').innerText = `THERE IS NO ESCAPE! B-) B-) B-)`;
+            document.getElementById('target').innerText = `YOU ARE AN IDIOT #2!\nB-) B-) B-)`;
             document.getElementById('exit-trap').style.display = 'none';
 
-
             setTimeout(function() {
-                
-                
                 function unbreakableAlert() {
                     alert(`WELCOME TO YOU ARE AN IDIOT #2!\n\nThere is no escape from ${hostname}! B-)`);
-                    
-                   
                     setTimeout(unbreakableAlert, 0);
                 }
-
-                // Snap the trap shut
                 unbreakableAlert();
-
             }, 100); 
         }
     </script>
