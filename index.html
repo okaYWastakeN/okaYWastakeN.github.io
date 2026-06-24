@@ -1,243 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0x0ff</title>
-  <style>
-   
-    body {
-      background-color: #c0c0c0; /* early web gray */
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      box-sizing: border-box;
-      font-family: "MS Sans Serif", "Segoe UI", Arial, sans-serif;
-      font-size: 14px;
-    }
-
-    
-    .tabs-container {
-      width: 100%;
-      max-width: 500px;
-    }
-
-    
-    .retro-tab-header {
-      display: flex;
-      gap: 2px;
-      position: relative;
-      z-index: 2;
-      top: 1px; 
-    }
-
-    
-    .retro-tab-link {
-      background: #c0c0c0;
-      border: 2px solid #fff;
-      border-right-color: #808080;
-      border-bottom-color: transparent;
-      padding: 8px 16px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: normal;
-      outline: none;
-      color: #000;
-    }
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
 
    
-    .retro-tab-link.active {
-      background: #c0c0c0;
-      font-weight: bold;
-      border-bottom: 2px solid #c0c0c0; 
-      padding-bottom: 10px; 
-      margin-top: -2px;
-      z-index: 3;
-    }
+        #gatekeeper {
+            text-align: center;
+            max-width: 600px;
+            z-index: 10;
+        }
 
-    
-    .retro-tab-content {
-      display: none;
-      background: #ffffff;
-      padding: 25px;
-      border: 2px solid #fff;
-      border-left-color: #fff;
-      border-top-color: #fff;
-      border-right-color: #808080;
-      border-bottom-color: #808080;
-      box-shadow: 1px 1px #0a0a0a;
-      min-height: 140px;
-      color: #000;
-      line-height: 1.5;
-    }
+        .fun-btn {
+            background-color: #00ff00;
+            color: #000000;
+            border: none;
+            padding: 20px 40px;
+            font-size: 2.5rem;
+            font-family: 'Impact', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ff00;
+            border-radius: 5px;
+            transition: transform 0.1s;
+        }
 
-    .retro-tab-content.active {
-      display: block;
-    }
-    
-    
-    .retro-link {
-      color: #0000ee;
-      text-decoration: underline;
-    }
-    .retro-link:visited {
-      color: #551a8b;
-    }
+        .fun-btn:hover {
+            transform: scale(1.05);
+            background-color: #33ff33;
+        }
 
-    
-    .metric-group {
-      margin-top: 15px;
-      border-top: 1px dashed #808080;
-      padding-top: 15px;
-    }
-    .metric-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-    .metric-label {
-      color: #555;
-    }
-    .metric-value {
-      font-family: monospace;
-      font-weight: bold;
-    }
-    .address-box {
-      font-family: monospace;
-      font-size: 11px;
-      background: #eeeeee;
-      padding: 4px;
-      border: 1px inset #808080;
-      word-break: break-all;
-      margin-top: 5px;
-    }
-  </style>
+        .disclaimer-text {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        
+        .chaos-mode {
+            animation: flash 0.15s infinite;
+        }
+
+        @keyframes flash {
+            0% { background-color: #111; }
+            50% { background-color: #fff; }
+            100% { background-color: #000; }
+        }
+
+        .virus-text {
+            font-size: 8vw;
+            font-family: "Impact", sans-serif;
+            text-align: center;
+            line-height: 1;
+            letter-spacing: 2px;
+            transform: rotate(-5deg);
+            display: none;
+            text-shadow: 0 0 20px currentColor; /* Pulls from the dynamic JS color */
+            transition: color 0.2s ease;
+        }
+
+        .sub-text {
+            font-size: 3vw;
+            margin-top: 20px;
+            font-family: monospace;
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            display: none;
+        }
+
+     
+        #exit-trap {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-align: center;
+            display: none;
+            z-index: 100;
+        }
+
+        .exit-btn {
+            background: #ff0000;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        .exit-btn:hover {
+            background: #cc0000;
+        }
+
+        .fake-text {
+            font-size: 0.6rem;
+            color: #888;
+            margin-top: 4px;
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="tabs-container">
-    <div class="retro-tab-header">
-      <button class="retro-tab-link active" onclick="openRetroTab(event, 'tab-one')">CTFs</button>
-      <button class="retro-tab-link" onclick="openRetroTab(event, 'tab-two')">Stock</button>
-      <button class="retro-tab-link" onclick="openRetroTab(event, 'tab-three')">Sponsoring and support!</button>
+    <div id="gatekeeper">
+        <button class="fun-btn" onclick="startChaos()">Click me for fun! :-))))</button>
+        <div class="disclaimer-text" id="disclaimer-target">...</div>
     </div>
 
-    
-    <div id="tab-one" class="retro-tab-content active">
-      <p><strong>CTFs</strong></p>
-      <p>WIP</p>
+    <div class="virus-text" id="target">...</div>
+    <div class="sub-text" id="sub-target">YOU ARE AN IDIOT! :-) :-) :-)</div>
+
+    <div id="exit-trap">
+        <button class="exit-btn" onclick="triggerLevel2()">EXIT</button>
+        <div class="fake-text">(not exit)</div>
     </div>
 
-    <div id="tab-two" class="retro-tab-content">
-      <p><strong>LTC stock</strong></p>
-      <p>Stock is updated when you refresh the page =)</p>
+    <script>
       
-      <div class="metric-group">
-        <div class="metric-row">
-          <span class="metric-label">Current Fund:</span>
-          <span id="ltc-balance" class="metric-value">Loading...</span>
-        </div>
-        <div class="metric-row">
-          <span class="metric-label">Est. Rem. Solves:</span>
-          <span id="est-solves" class="metric-value">--</span>
-        </div>
-        <div>
-          <span class="metric-label">Public Audit Address:</span>
-          <div id="platform-address" class="address-box">Loading...</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="tab-three" class="retro-tab-content">
-      <p><strong>Sponsoring and support!</strong></p>
-      <p>Want to advertise yourself? Send us an email for sponsoring our site! Min sponsor: 3 USD (LTC).</p>
-      <p>Your name or text will appear as a beautiful banner or when a user completes a CTF! Email: akdangerous@proton.me</p>
-    </div>
-  </div>
-
-  <script>
-    
-    const LTC_ADDRESS = "LWCsBtrK6beC69t13Lk1tbTZ1pZhoFfWVE";
-
-    function openRetroTab(evt, tabName) {
-      var i, tabContent, tabLinks;
-
-      tabContent = document.getElementsByClassName("retro-tab-content");
-      for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].classList.remove("active");
-      }
-
-      tabLinks = document.getElementsByClassName("retro-tab-link");
-      for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].classList.remove("active");
-      }
-
-      document.getElementById(tabName).classList.add("active");
-      evt.currentTarget.classList.add("active");
-
-     
-      if (tabName === 'tab-two') {
-        fetchLtcBalance();
-      }
-    }
-
-    async function fetchLtcBalance() {
-      const balanceEl = document.getElementById('ltc-balance');
-      const solvesEl = document.getElementById('est-solves');
-      const addressEl = document.getElementById('platform-address');
-      
-      addressEl.textContent = LTC_ADDRESS;
-
-      if (LTC_ADDRESS === "YOUR_LITECOIN_ADDRESS_HERE" || LTC_ADDRESS.trim() === "") {
-        balanceEl.textContent = "Address unconfigured";
-        return;
-      }
-
-      try {
-     
-        const response = await fetch(`https://litecoinspace.org/api/address/${LTC_ADDRESS}`);
-        if (!response.ok) throw new Error('Blockchain API error');
-        const data = await response.json();
+        let hostname = window.location.hostname.replace('www.', '').toUpperCase();
         
-     
-        const funded = data.chain_stats.funded_txo_sum + data.mempool_stats.funded_txo_sum;
-        const spent = data.chain_stats.spent_txo_sum + data.mempool_stats.spent_txo_sum;
-        const balanceInSatoshis = funded - spent;
-        const ltcBalance = balanceInSatoshis / 100000000;
-
       
-        let ltcPriceUsd = 51.00; // fallback
-        try {
-          const priceResponse = await fetch('https://api.coinbase.com/v2/prices/LTC-USD/spot');
-          if (priceResponse.ok) {
-            const priceData = await priceResponse.json();
-            ltcPriceUsd = parseFloat(priceData.data.amount);
-          }
-        } catch (e) {
-          console.warn("Could not fetch live price, using fallback.", e);
+        document.getElementById('target').innerText = `${hostname} IS INFECTED!`;
+        document.getElementById('disclaimer-target').innerText = `DISCLAIMER: By clicking the button above, you agree to enter a joke website for ${hostname}. This will trigger browser artifacts, flashing lights, and interactive layout changes. Proceed at your own risk!`;
+        document.title = `Welcome to ${hostname}`;
+
+       
+        function generateDomainColor(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            let h = Math.abs(hash % 360);
+            return `hsl(${h}, 100%, 50%)`; 
         }
 
        
-        const totalCents = Math.floor((ltcBalance * ltcPriceUsd) * 100);
+        const virusColor = generateDomainColor(hostname);
+        document.getElementById('target').style.color = virusColor;
 
-       
-        balanceEl.textContent = `${ltcBalance.toFixed(4)} LTC / ${totalCents}¢`;
-        solvesEl.textContent = `${totalCents.toLocaleString()} solves remaining`;
-
-      } catch (error) {
-        console.error(error);
-        balanceEl.textContent = "Error loading metric";
-        solvesEl.textContent = "Error";
-      }
-    }
 
     
-    document.getElementById('platform-address').textContent = LTC_ADDRESS;
-  </script>
+        function startChaos() {
+          
+            document.getElementById('gatekeeper').style.display = 'none';
 
+            // Paint the virus graphics and fake layout exit
+            document.getElementById('target').style.display = 'block';
+            document.getElementById('sub-target').style.display = 'block';
+            document.getElementById('exit-trap').style.display = 'block';
+
+           
+            document.title = `YOU ARE AN IDIOT - ${hostname}`;
+            document.body.classList.add('chaos-mode');
+
+          
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        }
+
+
+
+        function triggerLevel2() {
+        
+            document.title = `YOU ARE AN IDIOT #2 - ${hostname} B-)`;
+            document.getElementById('target').innerText = `WELCOME TO LEVEL 2!`;
+            document.getElementById('target').style.color = '#ff00ff'; // 
+            document.getElementById('sub-target').innerText = `THERE IS NO ESCAPE! B-) B-) B-)`;
+            document.getElementById('exit-trap').style.display = 'none';
+
+
+            setTimeout(function() {
+                
+                
+                function unbreakableAlert() {
+                    alert(`WELCOME TO YOU ARE AN IDIOT #2!\n\nThere is no escape from ${hostname}! B-)`);
+                    
+                   
+                    setTimeout(unbreakableAlert, 0);
+                }
+
+                // Snap the trap shut
+                unbreakableAlert();
+
+            }, 100); 
+        }
+    </script>
 </body>
 </html>
